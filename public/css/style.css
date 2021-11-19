@@ -1,0 +1,16 @@
+h3 {
+    background-color: rgb(242,242,242);
+}
+img {
+    height: 150px;
+    
+}
+
+img:hover {
+    height: 500px;
+  
+}
+
+.btn-success {
+    margin-bottom: 20px;
+}
