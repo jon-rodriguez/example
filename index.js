@@ -60,10 +60,10 @@ app.get("/kapital/:id", async(req, res) => {
 app.put("/kapital/:id", async(req, res) => {
     try {
         const { id } = req.params;
-        const { year } = req.body  //req.body.updateData ex. to use main.js fxn
-        const { number } = req.body;
-        const { team } = req.body
-        const { name } = req.body
+        const { year } = req.body.updateData; //req.body.updateData ex. to use main.js fxn
+        const { number } = req.body.updateData;
+        const { team } = req.body.updateData;
+        const { name } = req.body.updateData;
 //if {name} was {descName} then correct way to write it is {descName: "aksjdflk"} etc...
         const updateSingleCardYrNum = await pool.query(`update asset."class" 
         set year = $1, number = $2 where asset."class".id = $3;`, [year, number, id]);
