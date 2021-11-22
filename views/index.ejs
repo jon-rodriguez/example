@@ -36,7 +36,7 @@
               </thead>
               <tbody>
                 <% for(let i=0; i < displaySingleCardData.rows.length; i++) { %>
-                <tr class="data-row">
+                <tr id="data-row">
                   <td class="pt-3-half" contenteditable="false"> <%= displaySingleCardData.rows[i].id %> </td>
                   <td class="pt-3-half" contenteditable="true"> <%= displaySingleCardData.rows[i].year %> </td>
                   <td class="pt-3-half" contenteditable="true"> <%= displaySingleCardData.rows[i].number %> </td>
