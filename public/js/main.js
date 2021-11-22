@@ -42,7 +42,7 @@ async function sendData() {
 */
 
 const updateBtn = document.getElementById('exportBtn');
-const tableRows = document.querySelectorAll('.data-row')
+const tableRows = document.getElementById('data-row')
 
 updateBtn.addEventListener('click', sendData);
 
