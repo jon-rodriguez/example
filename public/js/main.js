@@ -42,32 +42,37 @@ async function sendData() {
 */
 
 const updateBtn = document.getElementById('exportBtn');
-const tableRows = document.getElementById('data-row')
+const tableRows = document.getElementById('data-row');
 
 updateBtn.addEventListener('click', sendData);
 
-async function sendData() {
-    const year = this.parentNode.childNodes[3].innerText;
-    const number = this.parentNode.childNodes[5].innerText;
-    const name = this.parentNode.childNodes[9].innerText;
-    const team = this.parentNode.childNodes[7].innerText;
-
+async function sendData(event) {
+    console.log(tableRows)
+    console.log(event.target)
+    const id = tableRows.childNodes[1].textContent;
+    const year = tableRows.childNodes[3].textContent;
+    const number = tableRows.childNodes[5].textContent;
+    const team = tableRows.childNodes[7].textContent;
+    const name = tableRows.childNodes[9].textContent;
+    console.log(id)
     console.log(year);
+    console.log(number);
+    console.log(name);
+    console.log(team);
     try {
-        const response = await fetch(`/kapital/1`, {
+        const response = await fetch(`/kapital/${id}`, {
             method: 'put',
             header: {'Content-type': 'application/json'},
             body: JSON.stringify({
-                //"id" : tableRows.childNodes[1].textContent,
-                "updateData": year,
-                "updateData": number,
-                "updateData": team,
-                "updateData": name
+                "year": year,
+                "number": number,
+                "team": team,
+                "name": name
             })
         })
         const data = await response.json()
         console.log(data)
-        location.reload()
+       // location.reload()
     } catch (err) {
         console.error(err.message)
     }
